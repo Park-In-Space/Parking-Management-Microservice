@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>co.edu.unal.park-in-space</groupId>
-	<artifactId>ParkingManager</artifactId>
+	<artifactId>parking_manager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ParkingManager</name>
+	<name>parking_manager</name>
 	<description>Parking Manager microservice for the Park-In-Space app</description>
 	<properties>
 		<java.version>11</java.version>
