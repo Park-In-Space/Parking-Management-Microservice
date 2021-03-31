@@ -16,4 +16,7 @@ data class Parking (
 
     @Column( name = "used_spaces" )
     var usedSpaces: Long = 0,
+
+    @Column(name = "image_location")
+    var imageLocation: String? = null,
 )
