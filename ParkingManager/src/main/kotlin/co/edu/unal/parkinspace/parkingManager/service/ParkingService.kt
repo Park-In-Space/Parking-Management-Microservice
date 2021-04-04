@@ -21,6 +21,7 @@ class ParkingService(private val parkingRepository: ParkingRepository) {
     fun updateParking(parkingId: Long, parkingDetails: Parking): Parking{
         val parking = getParkingById(parkingId)
         parking.name = parkingDetails.name
+        parking.pricePerMinute = parkingDetails.pricePerMinute
         parking.totalSpaces = parkingDetails.totalSpaces
         parking.usedSpaces = parkingDetails.usedSpaces
         return parkingRepository.save(parking)

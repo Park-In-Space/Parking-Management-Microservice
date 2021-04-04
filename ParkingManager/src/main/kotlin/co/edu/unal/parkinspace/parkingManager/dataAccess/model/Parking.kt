@@ -11,6 +11,9 @@ data class Parking (
     @Column( name = "name" , nullable = false )
     var name: String = "",
 
+    @Column( name = "price_per_minute" , nullable = false )
+    var pricePerMinute: Long = 0,
+
     @Column( name = "total_spaces" , nullable = false )
     var totalSpaces: Long = 0,
 
