@@ -1,14 +1,24 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
-    <changeSet author="andres (generated)" id="1617222914159-1">
+    <changeSet author="andres (generated)" id="1617582646964-1">
+        <createTable tableName="open_hours">
+            <column autoIncrement="true" name="id_open_hours" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="opening" type="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="closing" type="time">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="andres (generated)" id="1617582646964-2">
         <createTable tableName="parking">
             <column autoIncrement="true" name="id_parking" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="name" type="VARCHAR(100)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="price_per_minute" type="INT">
                 <constraints nullable="false"/>
             </column>
             <column name="total_spaces" type="INT">
@@ -17,7 +27,36 @@
             <column defaultValueNumeric="0" name="used_spaces" type="INT">
                 <constraints nullable="false"/>
             </column>
+            <column name="price_per_minute" type="INT">
+                <constraints nullable="false"/>
+            </column>
             <column name="image_location" type="VARCHAR(400)"/>
         </createTable>
+    </changeSet>
+    <changeSet author="andres (generated)" id="1617582646964-3">
+        <createTable tableName="parking_has_open_hours">
+            <column name="id_parking" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="id_open_hours" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="andres (generated)" id="1617582646964-4">
+        <createIndex indexName="fk_parking_has_open_hours_open_hours1_idx" tableName="parking_has_open_hours">
+            <column name="id_open_hours"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="andres (generated)" id="1617582646964-5">
+        <createIndex indexName="fk_parking_has_open_hours_parking_idx" tableName="parking_has_open_hours">
+            <column name="id_parking"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="andres (generated)" id="1617582646964-6">
+        <addForeignKeyConstraint baseColumnNames="id_open_hours" baseTableName="parking_has_open_hours" constraintName="fk_parking_has_open_hours_open_hours1" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id_open_hours" referencedTableName="open_hours" validate="true"/>
+    </changeSet>
+    <changeSet author="andres (generated)" id="1617582646964-7">
+        <addForeignKeyConstraint baseColumnNames="id_parking" baseTableName="parking_has_open_hours" constraintName="fk_parking_has_open_hours_parking" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id_parking" referencedTableName="parking" validate="true"/>
     </changeSet>
 </databaseChangeLog>

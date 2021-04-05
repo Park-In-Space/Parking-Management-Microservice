@@ -24,6 +24,7 @@ class ParkingService(private val parkingRepository: ParkingRepository) {
         parking.pricePerMinute = parkingDetails.pricePerMinute
         parking.totalSpaces = parkingDetails.totalSpaces
         parking.usedSpaces = parkingDetails.usedSpaces
+        parking.openHours = parkingDetails.openHours
         return parkingRepository.save(parking)
     }
 
