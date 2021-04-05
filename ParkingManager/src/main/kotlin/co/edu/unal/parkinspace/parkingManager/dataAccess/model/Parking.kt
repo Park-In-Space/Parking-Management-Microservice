@@ -27,5 +27,5 @@ data class Parking (
     @JoinTable(name = "parking_has_open_hours",
         joinColumns = [JoinColumn(name = "id_parking", referencedColumnName = "id_parking")],
         inverseJoinColumns = [JoinColumn(name = "id_open_hours", referencedColumnName = "id_open_hours", unique=true)])
-    var openHours: List<OpenHours> = emptyList(),
+    var openHours: MutableList<OpenHours?> = ArrayList(),
 )
