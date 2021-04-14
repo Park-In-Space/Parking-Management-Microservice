@@ -20,8 +20,9 @@ data class Parking (
     @Column( name = "used_spaces" )
     var usedSpaces: Long = 0,
 
-    @Column(name = "image_location")
-    var imageLocation: String? = null,
+    @Lob
+    @Column(name = "image")
+    var image: String? = null,
 
     @OneToMany( cascade = [CascadeType.ALL] )
     @JoinTable(name = "parking_has_open_hours",

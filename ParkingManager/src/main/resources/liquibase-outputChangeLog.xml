@@ -59,4 +59,27 @@
     <changeSet author="andres (generated)" id="1617582646964-7">
         <addForeignKeyConstraint baseColumnNames="id_parking" baseTableName="parking_has_open_hours" constraintName="fk_parking_has_open_hours_parking" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id_parking" referencedTableName="parking" validate="true"/>
     </changeSet>
+    <changeSet  author="riperezro"  id="modifyImageDataType">
+        <modifyDataType  catalogName="parking_management"
+                         columnName="image_location"
+                         newDataType="VARCHAR(4000)"
+                         schemaName="parking_management"
+                         tableName="parking"/>
+    </changeSet>
+    <changeSet  author="riperezro"  id="renameColumn-Image">
+        <renameColumn  catalogName="parking_management"
+                       columnDataType="VARCHAR(4000)"
+                       newColumnName="image"
+                       oldColumnName="image_location"
+                       remarks="Base 64 image"
+                       schemaName="parking_management"
+                       tableName="parking"/>
+    </changeSet>
+    <changeSet  author="riperezro"  id="modifyImageDataSize">
+        <modifyDataType  catalogName="parking_management"
+                         columnName="image"
+                         newDataType="MEDIUMTEXT"
+                         schemaName="parking_management"
+                         tableName="parking"/>
+    </changeSet>
 </databaseChangeLog>
