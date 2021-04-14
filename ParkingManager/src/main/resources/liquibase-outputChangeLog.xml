@@ -82,4 +82,12 @@
                          schemaName="parking_management"
                          tableName="parking"/>
     </changeSet>
+    <changeSet author="riperezro+gaperezsa" id="addColumn-id_location">
+        <addColumn catalogName="parking_management"
+                   schemaName= "parking_management"
+                   tableName="parking" >
+            <column name="id_location"
+                    type="INT"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

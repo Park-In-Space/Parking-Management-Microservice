@@ -26,6 +26,7 @@ class ParkingService(private val parkingRepository: ParkingRepository) {
         parking.totalSpaces = parkingDetails.totalSpaces
         parking.usedSpaces = parkingDetails.usedSpaces
         parking.image = parkingDetails.image
+        parking.idLocation = parkingDetails.idLocation
         var removed = 0
         for( i in parking.openHours.indices ){
             if( i >= parkingDetails.openHours.size ) removed ++
