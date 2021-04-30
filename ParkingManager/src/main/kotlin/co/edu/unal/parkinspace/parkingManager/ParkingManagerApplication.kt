@@ -14,8 +14,11 @@ class ParkingManagerApplication {
 		TimeZone.setDefault(TimeZone.getTimeZone("TimeZone"))
 	}
 
-	fun main(args: Array<String>) {
-		runApplication<ParkingManagerApplication>(*args)
+	companion object {
+		@JvmStatic
+		fun main(args: Array<String>) {
+			runApplication<ParkingManagerApplication>(*args)
+		}
 	}
 
 }
