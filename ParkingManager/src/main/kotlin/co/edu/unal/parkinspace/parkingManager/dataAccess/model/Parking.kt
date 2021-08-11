@@ -32,4 +32,7 @@ data class Parking (
     @Lob
     @Column(name = "image")
     var image: String? = null,
+
+    @Column( name = "address" )
+    var address: String? = "",
 )
